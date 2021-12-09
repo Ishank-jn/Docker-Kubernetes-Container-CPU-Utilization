@@ -2,7 +2,8 @@
 
 Implementing CPU Load goroutine requires the user to call the goroutine from the _main_ file.
 >> go CPULoadCalc()
->> for multi-cpu env divide cpuLoad by cpu count.
+
+For multi-cpu env divide cpuLoad by cpu count.
 
 Giving credit where it is due:
 https://unix.stackexchange.com/questions/450748/calculating-cpu-usage-of-a-cgroup-over-a-period-of-time
