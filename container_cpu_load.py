@@ -6,22 +6,23 @@ def readCPUStats():
   if os.path.exists(filepath):
    with open(filepath, 'rb') as tobj:
      CPUVal = tobj.read()
-
-  return CPUVal
+     return CPUVal
+  # if file not exists
+  return 0
 
 
 # CPULoadCalc computes CPU utilization over 5 seconds
-func CPULoadCalc() {
-  // infinte loop for goroutine
+def CPULoadCalc():
+  // infinte loop
   interval = 5
-  for {
+  while True:
     previous = readCPUStats()
+    start = time.time_ns()
 
     time.sleep(interval)
 
     after = readCPUStats()
+    stop = time.time_ns()
 
-    cpuLoad := float64(after-prev) / (5 * 1000000000)
-    fmt.Println("CPU load percentage", cpuLoad * 100)
-  }
-}
+    cpuLoad = float64((after-prev) / (stop-start))
+    print("CPU load percentage", cpuLoad * 100) 
